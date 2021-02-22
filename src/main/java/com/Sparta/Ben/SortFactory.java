@@ -29,14 +29,6 @@ public class SortFactory {
             case 7:
                 PerformanceTest.testPerformance(array);
                 return new SelectionSort(array);
-
-            case 8:
-                try {
-                    java.awt.Desktop.getDesktop().browse(URI.create("https://www.youtube.com/watch?v=oHg5SJYRHA0"));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                ;
         }
         return null;
     }

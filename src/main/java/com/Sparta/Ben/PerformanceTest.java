@@ -3,7 +3,7 @@ package com.Sparta.Ben;
 public class PerformanceTest {
     public static void testPerformance(int[] array){
         System.out.println("unsorted array: ");
-        Printer.printIntArray(array);
+        UserInterface.printIntArray(array);
 
 
 
@@ -15,7 +15,7 @@ public class PerformanceTest {
             long finish = System.nanoTime();
 
             System.out.println("Sort method " + i);
-            Printer.printIntArray(outArray);
+            UserInterface.printIntArray(outArray);
             long timeTaken = finish-start;
             System.out.println("time taken: " + timeTaken);
             System.out.println();
