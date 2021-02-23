@@ -1,19 +1,20 @@
 package com.Sparta.Ben;
 
 public class Controller {
+
         private static int minValue = 0;
         private static int maxValue = 1000;
+
     public static void start(){
-        UserInterface userInterface = new UserInterface();
-        userInterface.printOptions();
-        int sortType = userInterface.chooseSortAlgorithm();
-        int length = userInterface.lengthOfArrayWanted();
+        UserInterface.printOptions();
+        int sortType = UserInterface.chooseSortAlgorithm();
+        int length = UserInterface.lengthOfArrayWanted();
 
         SortFactory sortFactory = new SortFactory();
         int[] array = createArray(length,minValue,maxValue);
 
         System.out.println("unsorted array: ");
-        userInterface.printIntArray(array);
+        UserInterface.printIntArray(array);
 
         long start = System.nanoTime();
         Sorter sorter = sortFactory.sort(sortType,array);
@@ -21,8 +22,9 @@ public class Controller {
         long finish = System.nanoTime();
 
         System.out.println("Sort method " + sortType);
-        userInterface.printIntArray(outArray);
+        UserInterface.printIntArray(outArray);
         long timeTaken = (finish-start)/1_000;
+        UserInterface.printTimeTaken(timeTaken);
     }
 
     public static int[] createArray(int lengthOfArray, int minValue, int maxValue) {
@@ -33,5 +35,5 @@ public class Controller {
         }
         return randArray;
     }
-    
+
 }
