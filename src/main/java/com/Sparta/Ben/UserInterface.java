@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class UserInterface {
 
-    private Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
 
-    public void printOptions(){
+    public static void printOptions(){
         System.out.println("1. Bubble Sort");
         System.out.println("2. Insertion Sort");
         System.out.println("3. Merge Sort");
@@ -17,7 +17,7 @@ public class UserInterface {
         System.out.println();
     }
 
-    public int chooseSortAlgorithm(){
+    public static int chooseSortAlgorithm(){
         int sortAlgorithm;
         while (true) {
             System.out.println("Which sorting algorithm would you like to use?");
@@ -41,7 +41,7 @@ public class UserInterface {
         return sortAlgorithm;
     }
 
-    public int lengthOfArrayWanted(){
+    public static int lengthOfArrayWanted(){
         int length;
         System.out.println("How long should the array be?");
         while (!scanner.hasNextInt()) {
