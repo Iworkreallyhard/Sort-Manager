@@ -10,21 +10,19 @@ public class Controller {
         int sortType = UserInterface.chooseSortAlgorithm();
         int length = UserInterface.lengthOfArrayWanted();
 
-        SortFactory sortFactory = new SortFactory();
         int[] array = createArray(length,minValue,maxValue);
 
         System.out.println("unsorted array: ");
         UserInterface.printIntArray(array);
 
         long start = System.nanoTime();
-        Sorter sorter = sortFactory.sort(sortType,array);
+        Sorter sorter = SortFactory.sort(sortType,array);
         int[] outArray = sorter.sortArray(array);
         long finish = System.nanoTime();
 
-        System.out.println("Sort method " + sortType);
-        UserInterface.printIntArray(outArray);
-        long timeTaken = (finish-start)/1_000;
-        UserInterface.printTimeTaken(timeTaken);
+        if(sortType<7) {
+            UserInterface.printResults(sortType,outArray,finish-start);
+        }
     }
 
     public static int[] createArray(int lengthOfArray, int minValue, int maxValue) {
@@ -35,5 +33,4 @@ public class Controller {
         }
         return randArray;
     }
-
 }

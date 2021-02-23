@@ -4,7 +4,7 @@ public class SelectionSort implements Sorter{
     private int[] array;
 
     public SelectionSort(int[] array) {
-        this.array = sortArray(array);
+        this.array = array;
     }
 
     public int[] getArray() {
@@ -15,8 +15,6 @@ public class SelectionSort implements Sorter{
     public int[] sortArray(int[] arrayToSort) {
         int lowestIndex = 0;
         int lowestValue = arrayToSort[lowestIndex];
-
-
 
         for(int i = 0; i<arrayToSort.length; i++) {
 
@@ -38,9 +36,6 @@ public class SelectionSort implements Sorter{
             if(!swapsNeeded){
                 break;
             }
-//            else{
-//                swapsNeeded = false;
-//            }
         }
         return arrayToSort;
     }

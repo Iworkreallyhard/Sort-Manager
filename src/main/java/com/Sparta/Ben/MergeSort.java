@@ -1,17 +1,13 @@
 package com.Sparta.Ben;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MergeSort implements Sorter{
 
     int[] array;
 
-    //public MergeSort
-
-
     public MergeSort(int[] array) {
-        this.array = sortArray(array);
+        this.array = array;
     }
 
     public int[] getArray() {
@@ -26,11 +22,11 @@ public class MergeSort implements Sorter{
 
         for(int i = 0; i< array2.length+array1.length;i++){
 
-            if(array1Pos==array1.length) {//if all numbers in array1 have been added add remainder in array2
+            if(array1Pos == array1.length) {//if all numbers in array1 have been added add remainder in array2
                 retArray[retArrayPos] = array2[array2Pos];
                     array2Pos++;
                     retArrayPos++;
-            }else if(array2Pos==array2.length){ //if all numbers in array2 have been added add remainder in array1
+            }else if(array2Pos == array2.length){ //if all numbers in array2 have been added add remainder in array1
                 retArray[retArrayPos] = array1[array1Pos];
                     array1Pos++;
                     retArrayPos++;
@@ -46,28 +42,30 @@ public class MergeSort implements Sorter{
                 }
             }
         }
-
         return retArray;
     }
 
     @Override
     public int[] sortArray(int[] arrayToSort) {
-        arrayToSort =  mainSortAlgorithm(arrayToSort);
-        return arrayToSort;
-    }
-
-    private static int[] mainSortAlgorithm(int[] arrayToSort){
         if(arrayToSort.length>1){
 
             int[] array1 = Arrays.copyOfRange(arrayToSort,0,arrayToSort.length/2);
-            array1 = mainSortAlgorithm(array1);
+            array1 = sortArray(array1);
 
             int[] array2 = Arrays.copyOfRange(arrayToSort,arrayToSort.length/2,arrayToSort.length);
-            array2 = mainSortAlgorithm(array2);
+            array2 = sortArray(array2);
 
             return combine(array1,array2);
         }else{
             return arrayToSort;
+        }
+    }
+
+    private void addRemainderOfArray(int[] sumArray, int[] subArray, int sumArrayPosition, int subArrayPosition){
+        for(int i=subArrayPosition; i<array.length;i++){
+            sumArray[sumArrayPosition] = subArray[subArrayPosition];
+            subArrayPosition++;
+            sumArrayPosition++;
         }
     }
 }
