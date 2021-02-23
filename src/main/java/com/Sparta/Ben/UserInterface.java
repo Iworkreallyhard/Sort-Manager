@@ -63,4 +63,12 @@ public class UserInterface {
     public static void printTimeTaken(long timeTaken){
         System.out.println("time taken: " + timeTaken + (char) 956 + "s");
     }
+
+    public static void printResults(int sortType, int[] array, long timeTaken){
+        System.out.println("Sort method " + sortType);
+        printIntArray(array);
+        long timeTakenu = timeTaken / 1_000;
+        printTimeTaken(timeTakenu);
+        System.out.println();
+    }
 }

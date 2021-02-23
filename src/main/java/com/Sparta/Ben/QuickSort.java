@@ -5,7 +5,7 @@ public class QuickSort implements Sorter {
     int[] array;
 
     public QuickSort(int[] array) {
-        this.array = sortArray(array);
+        this.array = array;
     }
 
     public int[] getArray() {
@@ -29,7 +29,6 @@ public class QuickSort implements Sorter {
             up:
             for (int i = minIndex; i <= maxIndex; i++) {//loops from low to high
 
-
                 if (arrayToSort[i] > arrayToSort[pivotIndex]) {//checks to see if i is less than pivot. If not, skips this iteration
 
                     down:
@@ -38,8 +37,8 @@ public class QuickSort implements Sorter {
                             if(arrayToSort[i]>arrayToSort[pivotIndex]) {
                                 SwapNumbers.swapNumbersInArray(arrayToSort, pivotIndex, i);
                             }
-                            sorter(arrayToSort,minIndex,j-1);
-                            sorter(arrayToSort,i+1,maxIndex);
+                            sorter(arrayToSort,minIndex,j-1);//sorts array below pivot
+                            sorter(arrayToSort,i+1,maxIndex);//sort part of array above pivot
                         }else
                         if (arrayToSort[j] < arrayToSort[pivotIndex]) {
                             arrayToSort = SwapNumbers.swapNumbersInArray(arrayToSort, i, j);
